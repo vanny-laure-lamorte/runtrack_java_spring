@@ -1,0 +1,6 @@
+spring:
+    application:
+        name: runtrack
+greeting:
+    messageHello: "Hello Spring Boot!"
+    messageGoodbye: "Goodbye Spring Boot!"
