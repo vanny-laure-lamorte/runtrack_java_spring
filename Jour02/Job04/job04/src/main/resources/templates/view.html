@@ -1,0 +1,40 @@
+<!-- view.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription à l'école</title>
+</head>
+<body>
+    <h1>Formulaire d'inscription à la Plateforme</h1>
+
+    <!-- Formulaire d'inscription -->
+    <form action="/submit" method="POST">
+        <div>
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+        <div>
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
+        <div>
+            <label for="age">Âge :</label>
+            <input type="number" id="age" name="age" required>
+        </div>
+        <div>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="numero">Numéro de téléphone :</label>
+            <input type="tel" id="numero" name="numero" required>
+        </div>
+        <button type="submit">S'inscrire</button>
+    </form>
+    <div>
+        <p th:text="${welcomeMessage}"></p>
+    </div>
+</body>
+</html>
