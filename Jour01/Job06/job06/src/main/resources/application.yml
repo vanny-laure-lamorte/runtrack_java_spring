@@ -1,0 +1,10 @@
+
+spring:
+    application:
+        name: runtrack
+
+    devtools:
+        restart:
+            enabled: true
+greeting:
+    message: "Dev Tool !!"
