@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affichage des Animaux</title>
+    <style>
+        .message-box {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 18px;
+            width: fit-content;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .animal-box {
+            background-color: #003366;
+            color: white;
+            padding: 15px;
+            margin: 15px auto;
+            border-radius: 8px;
+            width: 80%;
+            text-align: left;
+        }
+
+        .animal-box h3 {
+            margin: 0;
+        }
+
+        .animal-box p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div th:each="animal : ${animals}" class="animal-box">
+        <h3 th:text="${animal.name}"></h3>
+        <p><strong>Espèce:</strong> <span th:text="${animal.species}"></span></p>
+        <p><strong>Âge:</strong> <span th:text="${animal.age}"></span> ans</p>
+        <p><strong>Habitat:</strong> <span th:text="${animal.habitat}"></span></p>
+    </div>
+</body>
+</html>
