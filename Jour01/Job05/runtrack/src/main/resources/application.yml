@@ -1,0 +1,19 @@
+spring:
+    application:
+        name: runtrack
+    profiles:
+        active: dev
+---
+spring:
+    config:
+        activate:
+            on-profile: dev
+greeting:
+    message: "Dev !"
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+greeting:
+    message: "Prod !"
