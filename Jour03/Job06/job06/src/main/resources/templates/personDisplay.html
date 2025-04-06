@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des personnes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .person-item {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 1.1em;
+        }
+
+        .person-item p {
+            margin: 0;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .person-item:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+
+        .person-item .name {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .person-item .age {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des personnes</h1>
+        <ul>
+            <li th:each="person : ${persons}" class="person-item">
+                <p><span class="name" th:text="${person.name}"></span> - <span class="age" th:text="${person.age}"></span> ans</p>
+                <a th:href="@{/persons/edit/{id}(id=${person.id})}" class="edit-button">Éditer</a>
+                <form th:action="@{/persons/delete/{id}(id=${person.id})}" method="post" style="display:inline;">
+                    <button type="submit" class="delete-button">Supprimer</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
