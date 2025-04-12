@@ -91,7 +91,7 @@
             Nom d'utilisateur ou mot de passe incorrect.
         </div>
 
-        <form action="/login" method="post">
+        <form th:action="@{/login}" method="post">
             <input type="text" name="username" class="input-field" placeholder="Nom d'utilisateur" required>
             <input type="password" name="password" class="input-field" placeholder="Mot de passe" required>
             <button type="submit" class="login-btn">Se connecter</button>

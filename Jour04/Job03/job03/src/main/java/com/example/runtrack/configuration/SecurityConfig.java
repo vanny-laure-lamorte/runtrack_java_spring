@@ -34,7 +34,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-        @Bean
+    @Bean
     public AuthenticationFailureHandler authenticationFailureHandler() {
         return (request, response, exception) -> {
             response.sendRedirect("/login?error=true");
@@ -46,6 +46,7 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
+                    .requestMatchers("/h2-console/**", "/register").permitAll()
                     .anyRequest().authenticated()
             )
             .formLogin(formLogin ->
@@ -53,7 +54,13 @@ public class SecurityConfig {
                     .loginPage("/login")
                     .permitAll()
                     .defaultSuccessUrl("/register", true)
-            );
+                    .failureHandler(authenticationFailureHandler())
+            )
+            .csrf(csrf -> csrf
+            .ignoringRequestMatchers("/h2-console/**")
+            )
+            .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()));
+
         return http.build();
     }
 

@@ -19,7 +19,7 @@
         }
 
         .register-container {
-            background-color: #003366; /* Bleu foncé */
+            background-color: #003366;
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -51,7 +51,7 @@
         .register-btn {
             width: 100%;
             padding: 10px;
-            background-color: #4d79ff; /* Bleu clair */
+            background-color: #4d79ff;
             border: none;
             border-radius: 8px;
             color: white;
@@ -79,7 +79,7 @@
 
     <div class="register-container">
         <h1>LA PLATEFORME</h1>
-        <form action="/register" method="post">
+        <form th:action="@{/register}" method="post">
             <input type="text" name="username" class="input-field" placeholder="Nom d'utilisateur" required>
             <input type="password" name="password" class="input-field" placeholder="Mot de passe" required>
             <input type="password" name="confirmPassword" class="input-field" placeholder="Confirmer le mot de passe" required>
