@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des utilisateurs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #001f3d;
+            color: white;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-block {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .role-box {
+            display: inline-block;
+            background-color: #004080;
+            padding: 5px 10px;
+            border-radius: 6px;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .action-btns {
+            text-align: center;
+        }
+
+        .action-btns a {
+            background-color: #004080;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+
+        .action-btns a:hover {
+            background-color: #002244;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #003366;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #004080;
+        }
+
+        tr:hover {
+            background-color: #002244;
+        }
+    </style>
+</head>
+<body>
+
+<div class="welcome-block">
+    <h2>
+        Welcome
+        <span th:text="${CoInfo.username}"></span>
+        <span th:text="${CoInfo.role == 'ROLE_ADMIN' ? 'ADMIN' : (personInfo.role == 'ROLE_USER' ? 'USER' : '')}" class="role-box"></span>
+    </h2>
+</div>
+
+<h1>Liste des utilisateurs</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nom d'utilisateur</th>
+            <th>Rôle</th>
+            <th th:if="${CoInfo.role == 'ROLE_ADMIN'}">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="personInfo : ${persons}">
+            <td th:text="${personInfo.id}"></td>
+            <td th:text="${personInfo.username}"></td>
+            <td th:text="${personInfo.role == 'ROLE_ADMIN' ? 'ADMIN' : (personInfo.role == 'ROLE_USER' ? 'USER' : '')}"></td>
+
+            <td th:if="${CoInfo.role == 'ROLE_ADMIN'}">
+                <div class="action-btns">
+                    <a th:href="@{/edit/{id}(id=${personInfo.id})}">Éditer</a>
+                    <a th:href="@{/delete/{id}(id=${personInfo.id})}" th:onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?');">Supprimer</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
