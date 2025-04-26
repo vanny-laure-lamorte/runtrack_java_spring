@@ -1,0 +1,162 @@
+JOUR 1
+
+Job 1  – Qu'est-ce que Spring Initializr et comment peut-il faciliter la création d'un nouveau projet Spring ?
+
+Spring Initializr est un outil en ligne qui simplifie la création de projets Spring en générant une structure de base avec les dépendances choisies. Il facilite le démarrage en évitant les configurations manuelles, ce qui fait gagner du temps dès le départ.
+
+Job 2  – Pourquoi le fichier pom.xml est-il crucial dans un projet Maven ?
+
+Le fichier pom.xml est crucial dans un projet Maven car il gère les dépendances, la compilation, les plugins et le packaging. Sans ce dernier, le build ne serait pas possible.
+
+Job 3  – Qu'est-ce qu'un contrôleur dans le contexte de Spring MVC ?
+
+Dans Spring MVC, un contrôleur traite les requêtes HTTP entrantes et permet de faire le lien entre la couche web et la logique métier. C’est ce dernier qui renvoie les vues ou les données au client. Il est l’élément clé qui permet la communication entre frontend et backend.
+
+Job 4  – Comment Spring permet-il l'injection de propriétés depuis des fichiers de configuration ?
+
+Spring permet d’injecter des propriétés depuis des fichiers de configuration notamment application.properties grâce à des annotations comme @Value ou @ConfigurationProperties. 
+
+Job 5  – Pourquoi serait-il utile d'avoir différents profils dans une application Spring ?
+
+Il est intéressant d’avoir différents profils dans une application afin d’adapter son comportement selon l’environnement (développement, production, test etc.). On peut activer des configurations ou des beans spécifiques à chaque profil.
+
+Job 6  – En quoi la dépendance DevTools est-elle bénéfique pour le développement ?
+
+La dépendance DevTools permet le rechargement automatique des modifications. Elle évite les démarrages manuels à chaque changement de code.
+
+
+--------
+
+
+JOUR 2
+
+Job 1 – Comment le modèle MVC aide-t-il à structurer une application web ?
+
+Le modèle MVC aide à structurer une application web en séparant clairement la logique métier (Modèle), l’affichage (Vue) et la gestion des requêtes (Contrôleur), ce qui améliore la lisibilité et la maintenabilité du code.
+
+Job 2 – Quelle est la différence entre Thymeleaf et les templates HTML classiques ?
+
+La différence entre Thymeleaf et les templates HTML classiques est que Thymeleaf permet d'intégrer dynamiquement des données depuis le serveur, tout en restant lisible comme un HTML standard, alors que les templates HTML classiques sont purement statiques.
+
+Job 3 – Comment pouvez-vous passer des données d'un contrôleur à une vue dans Spring ?
+
+Pour passer des données d’un contrôleur à une vue dans Spring, on utilise l’objet Model ou ModelMap dans la méthode du contrôleur pour ajouter des attributs accessibles dans la vue.
+
+Job 4 – Comment Spring facilite-t-il la gestion des formulaires ?
+
+Spring facilite la gestion des formulaires en liant automatiquement les champs du formulaire à un objet Java avec @ModelAttribute et en gérant la validation et les erreurs via des mécanismes intégrés.
+
+Job 5 – Comment Spring permet-il la validation des données du formulaire ?
+
+Spring permet la validation des données du formulaire en combinant les annotations de validation (@NotNull, @Size, etc.) avec @Valid dans le contrôleur, et en capturant les erreurs avec BindingResult.
+
+
+--------
+
+
+JOUR 3
+
+Job 1 – Qu'est-ce que JPA et comment facilite-t-il l'accès aux bases de données ?
+
+JPA est une spécification qui facilite l'accès aux bases de données en mappant les objets Java aux tables, ce qui permet de manipuler les données via des objets sans écrire de SQL explicite.
+
+Job 2 – Pourquoi les bases de données en mémoire, comme H2, sont-elles utiles pendant le développement ?
+
+Les bases de données en mémoire comme H2 sont utiles pendant le développement car elles sont rapides à démarrer, ne nécessitent pas d’installation, et permettent des tests isolés et reproductibles.
+
+Job 3 – Quelle est l'importance des annotations, telles que @Entity, dans le contexte de JPA ?
+
+L’importance des annotations comme @Entity dans le contexte de JPA est qu’elles permettent de déclarer qu’une classe Java correspond à une table, ce qui permet à JPA de gérer la persistance automatiquement.
+
+Job 4 – Comment Spring Data facilite-t-il la création de requêtes de base de données ?
+
+Spring Data facilite la création de requêtes de base de données en générant automatiquement les requêtes à partir des noms de méthodes des interfaces Repository, ce qui réduit le besoin d’écrire du code SQL.
+
+Job 5 – Comment pouvez-vous créer et lire des entités avec Spring Data JPA ?
+
+Pour créer et lire des entités avec Spring Data JPA, on utilise des méthodes directement via l’interface JpaRepository notamment save() pour l’insertion et findById() ou findAll() pour la lecture,
+
+Job 6 – Comment la méthode save de Spring Data JPA peut-elle être utilisée à la fois pour la création et la mise à jour ?
+
+La méthode save de Spring Data JPA peut être utilisée à la fois pour la création (si l’entité n’a pas d’identifiant) et la mise à jour (si l’ID existe), ce qui permet de gérer les deux cas avec une seule méthode.
+
+
+--------
+
+
+JOUR 4
+
+Job 1 – Pourquoi est-il conseillé de séparer la logique métier des contrôleurs ?
+
+Il est conseillé de séparer la logique métier des contrôleurs pour respecter le principe de séparation des responsabilités, faciliter les tests et améliorer la lisibilité du code.
+
+Job 2 – Quels sont les avantages d'utiliser Spring Security pour protéger une application ?
+
+Les avantages d’utiliser Spring Security sont sa robustesse, sa personnalisation facile, son intégration native avec Spring, et la gestion centralisée de l’authentification, des autorisations et des attaques courantes (CSRF, XSS…).
+
+Job 3 – Comment personnaliser le formulaire de connexion avec Spring Security ?
+
+Pour personnaliser le formulaire de connexion avec Spring Security, il suffit de spécifier les chemins du formulaire, des erreurs et du traitement dans la configuration (HttpSecurity), et de créer une page HTML à sa convenance.
+
+Job 4 – Comment Spring Security gère-t-il les autorisations basées sur les rôles ?
+
+Spring Security gère les autorisations via des annotations (@PreAuthorize, @Secured) ou des règles dans la configuration, en vérifiant que l’utilisateur possède les rôles nécessaires pour accéder à une ressource.
+
+Job 5 – Comment stocker en toute sécurité les mots de passe des utilisateurs avec Spring Security ?
+
+Pour stocker les mots de passe en toute sécurité avec Spring Security, on utilise BCryptPasswordEncoder qui chiffre les mots de passe avant de les enregistrer en base, empêchant leur lecture directe.
+
+
+--------
+
+
+JOUR 5
+
+Job 1 – Quel est le principal avantage de Thymeleaf par rapport à d'autres moteurs de templates comme JSP ?
+
+Le principal avantage de Thymeleaf par rapport à JSP est qu’il permet de visualiser les pages directement dans un navigateur sans serveur, tout en restant entièrement compatible avec le modèle Spring MVC.
+
+Job 2 – Comment liez-vous une liste d'objets à une vue Thymeleaf ?
+
+Pour lier une liste d’objets à une vue Thymeleaf, on ajoute cette liste dans le Model du contrôleur, puis on l’itère dans la vue avec th:each.
+
+Job 3 – Comment liez-vous un objet à un formulaire Thymeleaf ?
+
+Pour lier un objet à un formulaire Thymeleaf, on utilise th:object pour lier le formulaire à l’objet, et th:field sur chaque champ pour que les données soient automatiquement mappées.
+
+Job 4 – Comment Thymeleaf gère-t-il les messages d'erreur de validation ?
+
+Thymeleaf gère les messages d’erreur de validation via #fields.hasErrors et #fields.errors, permettant d’afficher les messages liés à chaque champ dans le formulaire.
+
+Job 5 – Comment pouvez-vous accéder à l'utilisateur actuellement connecté dans une vue Thymeleaf ?
+
+Pour accéder à l’utilisateur actuellement connecté dans une vue Thymeleaf, on peut utiliser ${#authentication.name} ou ${#authentication.principal} pour afficher ses informations.
+
+Job 6 – Dans quels scénarios Spring Web Flow est-il particulièrement utile ?
+
+Spring Web Flow est particulièrement utile pour les processus complexes à plusieurs étapes (ex. : inscriptions, paiements), car il gère l’état, les transitions, et la navigation de manière claire et structurée.
+
+Job 7 – Comment définissez-vous les états et transitions dans un flux de travail Spring Web Flow ?
+
+On définit les états et transitions dans un flux Spring Web Flow via un fichier XML ou une classe Java en déclarant les vues, les actions et les événements qui permettent de passer d’un état à un autre.
+
+Job 8 – Comment liez-vous une vue Thymeleaf à une étape spécifique d'un flux Spring Web Flow ?
+
+Pour lier une vue Thymeleaf à une étape d’un flux, il suffit de nommer la vue dans la définition du flow et de placer le fichier .html correspondant dans le bon répertoire des templates.
+
+Job 9 – Comment configurez-vous une page d'erreur personnalisée avec Thymeleaf et Spring Boot ?
+
+On configure une page d’erreur personnalisée avec Thymeleaf en créant une page dans /resources/templates/error (ex. : 404.html) et en laissant Spring Boot la gérer automatiquement.
+
+Job 10 – Comment incluez-vous un fragment Thymeleaf dans une vue ?
+
+Pour inclure un fragment Thymeleaf dans une vue, on utilise th:insert, th:replace ou th:include avec le nom du fragment défini dans un fichier HTML distinct.
+
+Job 11 – Où devriez-vous placer vos ressources statiques dans un projet Spring Boot ?
+
+Les ressources statiques dans un projet Spring Boot doivent être placées dans le dossier /static, /public, ou /resources sous src/main/resources pour qu’elles soient automatiquement servies.
+
+Job 12 – Comment Thymeleaf peut-il être utilisé pour charger du contenu de manière asynchrone ?
+
+Thymeleaf peut être utilisé avec JavaScript (AJAX) pour charger du contenu asynchrone en appelant des endpoints qui retournent des fragments HTML, que l’on insère ensuite dynamiquement dans la page.
+
